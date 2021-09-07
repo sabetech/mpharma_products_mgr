@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Fab, makeStyles, styled} from '@material-ui/core';
+import {Box, Fab, makeStyles, styled, Tooltip} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
 
@@ -20,9 +20,11 @@ export default function Header(){
         <MyStyledHeader>
             <h1 className={classes.heading}>
                 mPharma Products
-            <Fab color="secondary" aria-label="add" className={classes.fab}>
-                <AddIcon />
-            </Fab>
+            <Tooltip title="Add Product">
+                <Fab color="secondary" aria-label="add" className={classes.fab}>
+                    <AddIcon />
+                </Fab>
+            </Tooltip>
             </h1>
             
         </MyStyledHeader>

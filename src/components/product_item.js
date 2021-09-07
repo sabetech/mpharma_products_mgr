@@ -1,7 +1,8 @@
 import React from 'react';
-import {Card, makeStyles, Typography, CardContent, CardHeader, Avatar, IconButton, CardActions, Chip } from '@material-ui/core';
+import {Card, makeStyles, Tooltip, CardContent, CardHeader, Avatar, IconButton, CardActions, Chip } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import CreateIcon from '@material-ui/icons/Create';
+
 
 const useStyles = makeStyles({
     root: {
@@ -22,9 +23,11 @@ export default function ProductItem(){
                 </Avatar>
                 }
                 action={
+                    <Tooltip title="Delete">
                     <IconButton aria-label="close">
                         <CloseIcon />
                     </IconButton>
+                    </Tooltip>
                 }
                 title="Shrimp fggyh"
                 subheader="$850.00"
@@ -39,9 +42,11 @@ export default function ProductItem(){
                 <Chip label="$800" disabled size="small" variant="outlined"/>
             </CardContent>
             <CardActions style={{justifyContent: 'flex-end'}}>
-                <IconButton aria-label="Edit Product">
-                    <CreateIcon />
-                </IconButton>
+                <Tooltip title="Edit Product">
+                    <IconButton aria-label="Edit Product">
+                        <CreateIcon />
+                    </IconButton>
+                </Tooltip>
             </CardActions>
         </Card>
     );
