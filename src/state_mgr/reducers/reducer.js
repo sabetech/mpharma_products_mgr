@@ -18,7 +18,7 @@ const reducer = (state, action) => {
     }
 
     case REMOVE_PRODUCT: //just remove the product not the price
-
+      
     break;
 
     case ADD_PRODUCT:
@@ -42,8 +42,22 @@ const reducer = (state, action) => {
   
 
     case EDIT_PRODUCT: //modify both product and price via id
+      let priceKeys1 = Object.keys(state.entities.prices);
+      let newPriceId1 =state.entities.prices[priceKeys1.length].id + 1;
+      
+      let productProperties = action.payload;
+      let myproduct = state.entities.products[productProperties.product_id];
 
-    break;
+      let productStateEdit = {...state.entities};
+      productStateEdit.prices[newPriceId1] = {id: newPriceId1, price: parseInt(productProperties.price), date: productProperties.date}
+      productStateEdit.products[productProperties.product_id] = {id: productProperties.product_id, name: productProperties.product, prices:[...myproduct.prices, newPriceId1] };
+      
+      
+
+    return {
+      ...state,
+      entities: productStateEdit,
+    }
   }
   
     return state

@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Box, Fab, makeStyles, styled, Tooltip, Dialog, DialogTitle, DialogActions,DialogContent,DialogContentText, Button, TextField, Divider} from '@material-ui/core';
+import {Box, Fab, makeStyles, styled, Tooltip, Dialog, DialogTitle, DialogActions,DialogContent,DialogContentText, Button, TextField} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
@@ -21,17 +21,13 @@ function AddNewDialog(props) {
     }
 
     const handleOkay = () => {
-        console.log("okay clicked");
         setOpen(false);
-
         addProduct({
             "name": product,
             "price": price,
             "date": new Date().toISOString()
         });
     }
-
-    
 
     return (
       <Dialog aria-labelledby="add-new-title" open={open}>
@@ -40,7 +36,7 @@ function AddNewDialog(props) {
           <DialogContentText>
           
             <TextField id="outlined-basic" label="Product" variant="outlined" fullWidth onChange={(e)=>setProduct(e.target.value)}/>
-            <Divider />
+            
             <TextField id="outlined-basic" label="$$ Price" variant="outlined" fullWidth onChange={(e)=>setPrice(e.target.value)} />
 
           </DialogContentText>
