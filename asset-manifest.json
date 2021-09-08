@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mpharma_products_mgr/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/mpharma_products_mgr/static/js/main.ecf87cfe.chunk.js",
+    "main.js.map": "/mpharma_products_mgr/static/js/main.ecf87cfe.chunk.js.map",
+    "runtime-main.js": "/mpharma_products_mgr/static/js/runtime-main.33d61b08.js",
+    "runtime-main.js.map": "/mpharma_products_mgr/static/js/runtime-main.33d61b08.js.map",
+    "static/js/2.3a3b555d.chunk.js": "/mpharma_products_mgr/static/js/2.3a3b555d.chunk.js",
+    "static/js/2.3a3b555d.chunk.js.map": "/mpharma_products_mgr/static/js/2.3a3b555d.chunk.js.map",
+    "static/js/3.d4f9e840.chunk.js": "/mpharma_products_mgr/static/js/3.d4f9e840.chunk.js",
+    "static/js/3.d4f9e840.chunk.js.map": "/mpharma_products_mgr/static/js/3.d4f9e840.chunk.js.map",
+    "index.html": "/mpharma_products_mgr/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/mpharma_products_mgr/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.3a3b555d.chunk.js.LICENSE.txt": "/mpharma_products_mgr/static/js/2.3a3b555d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.33d61b08.js",
+    "static/js/2.3a3b555d.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.ecf87cfe.chunk.js"
+  ]
+}
