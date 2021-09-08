@@ -3,10 +3,12 @@
 This application is simple react-redux application to manage products.
 Users can view products, edit, delete and add new products.
 
-Once you clone this repo, before to run yarn install to get all the dependencies before you run 
+Once you clone this repo, be sure to run 
+### `yarn install`
+to get all the dependencies in before you run 
 ### `yarn start`
 
-I will also set up a github page that can be accessed without the use of hosting the project locally
+------------------The Content Below is the default documentation that comes with using create-react-app-----
 
 # Getting Started with Create React App
 
