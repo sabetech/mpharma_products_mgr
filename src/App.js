@@ -31,9 +31,21 @@ function App() {
         loadProducts(normalizedProducts);
 
       });
+    }else{
+
+      //load from localstorage ....
+      loadProductsState().then(response => loadProducts(response));
+
     }
     
   },[]);
+
+  useEffect(() => {
+    //save new state on every state change to localstorage 
+    if (state !== {})
+      saveProductsState(state);
+
+  }, [state]);
 
   return (
     <div className="App">

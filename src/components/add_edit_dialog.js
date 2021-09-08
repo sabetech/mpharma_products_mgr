@@ -12,7 +12,7 @@ export default function AddEditDialog(props) {
     const {editProduct} = bindActionCreators(actionCreators, dispatch);
 
     const { open, setOpen, productname, productid } = props;
-    const [product, setProduct] = useState("");
+    const [product, setProduct] = useState(productname);
     const [price, setPrice] = useState(0);
 
     const handleClose = () => {
@@ -35,7 +35,7 @@ export default function AddEditDialog(props) {
         <DialogContent>
           <DialogContentText>
           
-            <TextField id="outlined-basic" label="Product" variant="outlined" value={productname} fullWidth onChange={(e)=>setProduct(e.target.value)}/>
+            <TextField id="outlined-basic" label="Product" variant="outlined" value={product} fullWidth onChange={(e)=>setProduct(e.target.value)}/>
             <TextField id="outlined-basic" label="$$ Price" variant="outlined" fullWidth onChange={(e)=>setPrice(e.target.value)} />
 
           </DialogContentText>
