@@ -19,7 +19,18 @@ const reducer = (state, action) => {
 
     case REMOVE_PRODUCT: //just remove the product not the price
       
-    break;
+      let productIdToDelete = action.payload.product_id;
+      let currentProductState = state.entities;
+      delete currentProductState.products[productIdToDelete]
+      let results = state.result;
+      results = results.filter(item => item !== productIdToDelete);
+
+
+    return {
+      ...state,
+      entities : currentProductState,
+      result: results
+    } 
 
     case ADD_PRODUCT:
       let product = action.payload;

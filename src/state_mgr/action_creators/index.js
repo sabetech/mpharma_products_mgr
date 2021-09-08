@@ -10,7 +10,7 @@ export const loadProducts = (products) => {
 }
 
 export const removeProduct = (product_id) => {
-    return (dispatch ) => {
+    return (dispatch) => {
         dispatch({
             type: REMOVE_PRODUCT,
             payload: product_id
@@ -19,7 +19,7 @@ export const removeProduct = (product_id) => {
 }
 
 export const addProduct = (product) => {
-    return (dispatch ) => {
+    return (dispatch) => {
         dispatch({
             type: ADD_PRODUCT,
             payload: product

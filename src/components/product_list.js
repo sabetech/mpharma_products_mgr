@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 export default function ProductList(){
     const state = useSelector((state) => state);
 
-    console.log("is this the state");
+    console.log("current State!!!");
     console.log(state);
 
     return (

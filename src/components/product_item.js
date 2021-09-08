@@ -3,6 +3,10 @@ import {Card, makeStyles, Tooltip, CardContent, CardHeader, Avatar, IconButton, 
 import CloseIcon from '@material-ui/icons/Close';
 import CreateIcon from '@material-ui/icons/Create';
 import AddEditDialog from './add_edit_dialog';
+import { useDispatch } from 'react-redux';
+import { actionCreators } from '../state_mgr';
+import { bindActionCreators } from 'redux';
+import { removeProduct } from '../state_mgr/action_creators';
 
 
 const useStyles = makeStyles({
@@ -14,15 +18,15 @@ const useStyles = makeStyles({
 
 export default function ProductItem({product, prices}){
     const [open, setOpen] = useState(false);
-    const [product_id, setProduct_id] = useState(product.id);
-    const [productname, setProductName] = useState(product.name)
     const classes = useStyles();
+    const dispatch = useDispatch();
+
     let currentLatestDateObject = {
                                     date:prices[product.prices[0]]?.date,
                                     priceIndex: product.prices[0]
                                     }
     
-
+    const {removeProduct} = bindActionCreators(actionCreators, dispatch);                                
     product.prices.forEach((priceIndex) => { 
         if (new Date(currentLatestDateObject.date) < new Date(prices[priceIndex].date)){
             currentLatestDateObject.date = prices[priceIndex].date;
@@ -31,12 +35,15 @@ export default function ProductItem({product, prices}){
     })
 
     const handleEditProduct = () => {
-
-        setOpen(true);
-        
-
+        setOpen(true); //open the dialog box to edit product
     }
 
+    const handleDelete = () => {
+        
+        removeProduct({
+            product_id: product.id
+        });
+    }
 
 
     return (
@@ -49,7 +56,7 @@ export default function ProductItem({product, prices}){
                 }
                 action={
                     <Tooltip title="Delete">
-                    <IconButton aria-label="close">
+                    <IconButton aria-label="close" onClick={() => handleDelete()}>
                         <CloseIcon />
                     </IconButton>
                     </Tooltip>
