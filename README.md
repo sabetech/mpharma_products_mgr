@@ -1,3 +1,13 @@
+# Before you get to the default Readme ...
+
+This application is simple react-redux application to manage products.
+Users can view products, edit, delete and add new products.
+
+Once you clone this repo, before to run yarn install to get all the dependencies before you run 
+### `yarn start`
+
+I will also set up a github page that can be accessed without the use of hosting the project locally
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
