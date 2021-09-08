@@ -61,16 +61,21 @@ export default function ProductItem({product, prices}){
                     </IconButton>
                     </Tooltip>
                 }
-                title={product.name}
-                subheader={`$${prices[currentLatestDateObject.priceIndex].price}`}
+                title={<Typography color={"secondary"}>{product.name}</Typography>}
+                subheader={<Typography color={"primary"}>${prices[currentLatestDateObject.priceIndex].price}</Typography>}
             />
 
             <CardContent>
+                <Typography>Previous Prices</Typography>
                 {
                     product.prices.map((priceIndex, key) => 
                         {
                             if (priceIndex === currentLatestDateObject.priceIndex) return; 
-                            return (<Chip key={key} label={`$${prices[priceIndex].price}`} disabled size="small" variant="outlined"/>)
+                            return (
+                                <Tooltip title={`previous price @ ${prices[priceIndex].date}`}>
+                                    <Chip key={key} label={`$${prices[priceIndex].price}`} disabled size="small" variant="outlined"/>
+                                </Tooltip>
+                            )
                         })
                     
                 }

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import {Box, Fab, makeStyles, styled, Tooltip, Dialog, DialogTitle, DialogActions,DialogContent,DialogContentText, Button, TextField} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import PropTypes from 'prop-types';
@@ -15,6 +15,44 @@ function AddNewDialog(props) {
     const { open, setOpen } = props;
     const [product, setProduct] = useState("");
     const [price, setPrice] = useState(0);
+    const [productErrorMsg, setProductErrorMsg] = useState("");
+    const [productError, setProductError] = useState(false);
+
+    const [priceError, setPriceError] = useState(false);
+    const [priceErrorMsg, setPriceErrorMsg] = useState("");
+
+    useEffect(() => {
+        if (product.length === 0){
+            //product can't be empty
+            setProductError(true);
+            setProductErrorMsg("Product can't be empty!");
+            return;
+        }
+
+        if (price < 0){
+            setPriceError(true);
+            setPriceErrorMsg("Price cannot be a negative amount!");
+            return;
+        }
+
+        if (price.length === 0){
+            setPriceError(true);
+            setPriceErrorMsg("Price cannot be empty!");
+            return;
+        }
+
+        if (isNaN(price)){
+            setPriceError(true);
+            setPriceErrorMsg("Price is not a number!");
+            return;
+        }
+
+        setProductError(false);
+        setProductErrorMsg("");
+
+        setPriceError(false);
+        setPriceErrorMsg("");
+    },[product, price])
 
     const handleClose = () => {
         setOpen(false);
@@ -35,17 +73,21 @@ function AddNewDialog(props) {
         <DialogContent>
           <DialogContentText>
           
-            <TextField id="outlined-basic" label="Product" variant="outlined" fullWidth onChange={(e)=>setProduct(e.target.value)}/>
+            <TextField id="outlined-basic" label="Product" variant="outlined" value={product} fullWidth onChange={(e)=>setProduct(e.target.value)}
+                error={productError} helperText={productErrorMsg}
+            />
             
-            <TextField id="outlined-basic" label="$$ Price" variant="outlined" fullWidth onChange={(e)=>setPrice(e.target.value)} />
+            <TextField id="outlined-basic" label="Enter Price ($)" variant="outlined" value={price} fullWidth onChange={(e)=>setPrice(e.target.value)} 
+                error={priceError} helperText={priceErrorMsg}
+            />
 
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="primary" >
             Cancel
           </Button>
-          <Button onClick={handleOkay} color="primary" autoFocus>
+          <Button onClick={handleOkay} color="primary" autoFocus disabled={priceError || productError}>
             Okay
           </Button>
         </DialogActions>
